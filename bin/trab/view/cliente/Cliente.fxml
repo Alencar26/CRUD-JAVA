@@ -56,5 +56,6 @@
       <Button fx:id="btnCancelar" layoutX="70.0" layoutY="406.0" mnemonicParsing="false" onAction="#CancelarAcao" prefHeight="26.0" prefWidth="146.0" text="Cancelar" visible="false" />
       <Button fx:id="btnExcluir" layoutX="71.0" layoutY="446.0" mnemonicParsing="false" onAction="#ExcluirCliente" prefHeight="26.0" prefWidth="146.0" text="Excluir" visible="false" />
       <Button fx:id="btnSair" layoutX="836.0" layoutY="528.0" mnemonicParsing="false" onAction="#SairAplicacao" prefHeight="26.0" prefWidth="110.0" text="Sair" />
+      <Button fx:id="btnProduto" layoutX="15.0" layoutY="529.0" mnemonicParsing="false" onAction="#TelaProdutos" prefHeight="25.0" prefWidth="149.0" text="Produtos" />
    </children>
 </AnchorPane>

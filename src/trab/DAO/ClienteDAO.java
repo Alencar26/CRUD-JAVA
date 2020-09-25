@@ -91,9 +91,8 @@ public class ClienteDAO extends dbConnection {
 	return cliente;
 }
 
-	
 	public int alterar(Cliente cliente) {
-int quantidade = 0;
+		int quantidade = 0;
 		
 		try(Connection connection = this.conectar();
 				PreparedStatement pst = connection.prepareStatement(SQL_UPDATE_CLIENTE_CPF);){

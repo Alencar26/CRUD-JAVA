@@ -17,7 +17,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import trab.DAO.ClienteDAO;
 import trab.model.Cliente;
 
@@ -89,6 +91,9 @@ public class ControllerCliente extends Application implements Initializable{
     
     @FXML
     private Button btnSair;
+    
+    @FXML
+    private Button btnProduto;
     
     @FXML
     void AdicionarCliente(ActionEvent event) { 	
@@ -178,9 +183,24 @@ public class ControllerCliente extends Application implements Initializable{
     	btnSair.setOnAction(e -> Platform.exit());
     }
     
+    @FXML
+    void TelaProdutos(ActionEvent event) throws IOException {
+    	Pane testPane = FXMLLoader
+				.load(getClass().getResource("/trab/view/produto/Produto.fxml"));
+
+		Scene scene = new Scene(testPane);
+		Stage primaryStage = new Stage(StageStyle.DECORATED);
+		primaryStage.setResizable(false);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Produtos");
+		primaryStage.show();
+    }
+    
+    
     private Cliente pegaDados() {
     	return new Cliente(txtCPF.getText(), txtNome.getText(), txtFone.getText(), checkMensalista.isSelected());
     }
+    
     
     private void listarClientes() {
     	txtAreaListClientes.clear();
@@ -192,6 +212,7 @@ public class ControllerCliente extends Application implements Initializable{
     	
     }
     
+   
     private void limpaCampo() {
     	txtCPF.clear();
     	txtNome.clear();
