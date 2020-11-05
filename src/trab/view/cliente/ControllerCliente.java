@@ -194,14 +194,13 @@ public class ControllerCliente extends Application implements Initializable{
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Produtos");
 		primaryStage.show();
+		
     }
-    
-    
-    private Cliente pegaDados() {
+     
+    public Cliente pegaDados() {
     	return new Cliente(txtCPF.getText(), txtNome.getText(), txtFone.getText(), checkMensalista.isSelected());
     }
-    
-    
+ 
     private void listarClientes() {
     	txtAreaListClientes.clear();
     	List<Cliente> listaClientes = new ClienteDAO().listarTodos();
@@ -211,8 +210,7 @@ public class ControllerCliente extends Application implements Initializable{
     	});
     	
     }
-    
-   
+     
     private void limpaCampo() {
     	txtCPF.clear();
     	txtNome.clear();

@@ -21,6 +21,7 @@ public class ClienteDAO extends dbConnection {
 		
 		int quantidade = 0;
 		
+		if(cliente != null) {
 		try(Connection connection = this.conectar();
 				PreparedStatement pst = connection.prepareStatement(SQL_INSERT_CLIENTE);){
 			
@@ -34,6 +35,7 @@ public class ClienteDAO extends dbConnection {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
 		
 		return quantidade;
 	}
@@ -94,6 +96,8 @@ public class ClienteDAO extends dbConnection {
 	public int alterar(Cliente cliente) {
 		int quantidade = 0;
 		
+		if(cliente != null) {
+		
 		try(Connection connection = this.conectar();
 				PreparedStatement pst = connection.prepareStatement(SQL_UPDATE_CLIENTE_CPF);){
 			
@@ -108,23 +112,28 @@ public class ClienteDAO extends dbConnection {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+	}
 		return quantidade;
 	
 	}
 
-	public void excluir(String CPF) {
+	public boolean excluir(String CPF) {
+		boolean retorno = false;
+		
+		if(CPF != null) {
 		try(Connection connection = this.conectar();
 				PreparedStatement pst = connection.prepareStatement(SQL_DELETE_CLIENTE);){
 			
 			pst.setString(1, CPF);
 			pst.execute();
+			retorno = true;
 			System.out.println("Sucesso!");
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+	}
+		return retorno;
 	}
 	
 }
